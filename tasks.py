@@ -59,3 +59,55 @@ for i in range(len(numbers)):
 
 print(odd_sum)
 print(even_sum)
+
+try:
+    1/0
+except ZeroDivisionError:
+    print("error")
+
+a = "string"
+
+for i in range(len(a)):
+    print(a[i])
+
+print(a[1:4])
+print(a[-2])
+print(a[:-2])
+
+for i in a:
+    print(i)
+
+print(a.count('s'))
+print(a.count('c'))
+
+b = [1, 4, 7,2,5,6, 10, 11]
+b.sort()
+print(b)
+c = (1, 4, 7,2,5,6, 10, 11)
+# c.sort()
+d = sorted(c)
+print(b)
+
+e = [1, 4, 7,2,5,6, 10, 11]
+
+e.append(8)
+print(e)
+e.insert(1, 8)
+print(e)
+
+removed = e.pop(len(e) - 1)
+print(e)
+print(removed)
+e.reverse()
+print(e)
+
+f = [1, 10, 20, 5, 4, 8]
+r = f
+f.sort()
+print(f)
+print(r)
+
+y = f.copy()
+f.reverse()
+print(y)
+print(f)
