@@ -1,6 +1,3 @@
-import re
-from multiprocessing.pool import job_counter
-
 text = """homEwork:
  tHis iz your homeWork, copy these Text to variable.
 
