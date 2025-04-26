@@ -66,3 +66,7 @@ def format_text(work_text):
     for i in range(len(formated_text)):
         formated_text[i] = formated_text[i].capitalize()
     return '\n'.join(formated_text)
+
+def normalize_text(work_text):
+    fixed_text = fix_mistakes(work_text)
+    return format_text(fixed_text)
