@@ -2,12 +2,13 @@ import datetime
 from docx import Document
 import os
 from docx.opc.exceptions import PackageNotFoundError
+import hw6
 
 class Publisher:
     def __init__(self):
         self.document_path = 'news_list.docx'
 
-    options = ["News", "Private Add", "Fun story"]
+    options = ["News", "Private Add", "Fun story", "From File"]
 
     def select_from_options(self, options):
         print("Please choose from the following options:")
@@ -48,14 +49,17 @@ class Publisher:
         text = input(f'Input your {selected_option}: ')
         if selected_option == "News":
             location = input('Input your location: ')
-            news = News(text, location)
-            item_to_add = news.generate_news_text()
+            item = News(text, location)
+            item_to_add = item.generate_news_text()
         if selected_option == "Private Add":
-            news = PrivateAdd(text)
-            item_to_add = news.generate_news_text()
+            item = PrivateAdd(text)
+            item_to_add = item.generate_add_text()
         if selected_option == "Fun story":
-            news = FunStory(text);
-            item_to_add = news.generate_fun_story_text()
+            item = FunStory(text)
+            item_to_add = item.generate_fun_story_text()
+        if selected_option == "From File":
+            item = hw6.From_File(text)
+            item_to_add = item.generate_file_text()
         print('item_to_add ', item_to_add)
         self.add_text_to_document(item_to_add)
 
@@ -78,7 +82,7 @@ class PrivateAdd(Publisher):
     def __init__(self, add_text):
         self.add_text = add_text
 
-    def generate_news_text(self):
+    def generate_add_text(self):
         news_text = f'''
 Private Add -------------------
 {self.add_text}
