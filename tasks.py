@@ -1,4 +1,7 @@
 import random
+import pd
+
+data = pd.read_query()
 
 a = [1,2,4,10,5.6,'string', True]
 print(a[5])
