@@ -3,12 +3,14 @@ from docx import Document
 import os
 from docx.opc.exceptions import PackageNotFoundError
 import hw6
+from hw8 import JsonWriter
+from hw9 import XmlWriter
 
 class Publisher:
     def __init__(self):
         self.document_path = 'news_list.docx'
 
-    options = ["News", "Private Add", "Fun story", "From File"]
+    options = ["News", "Private Add", "Fun story", "From File", "From Json", 'XML']
 
     def select_from_options(self, options):
         print("Please choose from the following options:")
@@ -60,6 +62,20 @@ class Publisher:
         if selected_option == "From File":
             item = hw6.From_File(text)
             item_to_add = item.generate_file_text()
+        if selected_option == "From Json":
+            json_type = input('1 From file; 2 From string')
+            if(json_type == '1'):
+                file_path = input('File Path - ')
+                item = JsonWriter(file_path)
+                item_to_add = item.generate_json()
+            if(json_type == '2'):
+                data_dict = input('Dict - ')
+                item = JsonWriter(data_dict)
+                item_to_add = item.generate_json()
+        if selected_option == "XML":
+            xml_path = input('File path - ')
+            item = XmlWriter(xml_path)
+            item_to_add = item.generate_xml()
         print('item_to_add ', item_to_add)
         self.add_text_to_document(item_to_add)
 
