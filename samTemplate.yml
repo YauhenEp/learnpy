@@ -5,7 +5,7 @@ Description: SQS to SNS.
 Parameters:
   SQSQueueArn:
     Type: String
-    Description: The ARN of the SQS Queue
+    Description: arn:aws:sqs:eu-central-1:343218200341:yauhen-task9-UploadsNotificationQueue
 
 Resources:
   Function:
